@@ -49,7 +49,8 @@ function AllUsers() {
       .then((res) => res.json())
       .then((data) => {
         setUsers(data.data);
-        setPagesNumber(data.paginationResult.numberOfPages);
+        console.log(data);
+        // setPagesNumber(data.paginationResult.numberOfPages);
       })
       .finally(() => setOnload(false));
   }, [refresh, currentPage, search]);

@@ -14,7 +14,7 @@ function CreateLesson() {
   const nav = useNavigate();
 
   useEffect(() => {
-    fetch(`${route}/education/courses`, {
+    fetch(`${route}/courses`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -42,7 +42,7 @@ function CreateLesson() {
     formData.append("videoUrl", vid);
 
     setOnload(true);
-    fetch(`${route}/education/lessons`, {
+    fetch(`${route}/lessons`, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -55,7 +55,7 @@ function CreateLesson() {
         if (data?.errors) {
           setErr(data.errors[0].msg);
         }
-        if (data.success) {
+        if (data.data) {
           nav("/all-lessons");
         }
         setOnload(false);

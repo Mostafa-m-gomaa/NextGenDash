@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AppContext } from "../../App";
 import { useNavigate } from "react-router-dom";
+import toast, { Toaster } from "react-hot-toast";
 
 function AddUserToPackage() {
   const { setOnload, route, token } = useContext(AppContext);
@@ -13,7 +14,7 @@ function AddUserToPackage() {
   useEffect(() => {
     setOnload(true);
 
-    fetch(`${route}/education/packages`, {
+    fetch(`${route}/courses`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -31,15 +32,14 @@ function AddUserToPackage() {
 
     setOnload(true);
 
-    fetch(`${route}/education/packages/addUserToPlan`, {
+    fetch(`${route}/courses/addUserToCourse/${selected}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify({
-        userEmail: email,
-        planId: selected,
+        email: email,
       }),
     })
       .then((res) => res.json())
@@ -48,8 +48,9 @@ function AddUserToPackage() {
         if (data?.errors) {
           setErr(data.errors[0].msg);
         }
-        if (data.data) {
-          nav("/all-users");
+        if (data.status === "success") {
+          // nav("/all-users");
+          toast.success("User added to package successfully");
         }
         setOnload(false);
       })

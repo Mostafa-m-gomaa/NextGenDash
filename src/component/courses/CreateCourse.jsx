@@ -44,24 +44,16 @@ function CreateCourse() {
   };
 
   useEffect(() => {
-    fetch(`${route}/education/packages`, {
+    fetch(`${route}/categories`, {
       method: "GET",
       headers: {
-        "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
     })
       .then((res) => res.json())
-      .then((data) => setCates(data.data));
-    fetch(`${route}/telegramChannel`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => setTelegramChannels(data.data));
+      .then((data) => {setCates(data.data)
+      console.log(data)
+      });
   }, []);
 
   const handelSubmit = function (e) {
@@ -73,10 +65,10 @@ function CreateCourse() {
 
     formData.append("title", title);
     formData.append("description", desc);
-    formData.append("package", selectedCate);
+    formData.append("category", selectedCate);
     formData.append("image", image);
-    formData.append("showBroker",brok);
-    fetch(`${route}/education/courses`, {
+    formData.append("price", price);
+    fetch(`${route}/courses`, {
       method: "POST",
       headers: {
         // "Content-Type": "application/json",
@@ -123,6 +115,15 @@ function CreateCourse() {
           />
         </div>
         <div className="input-group">
+          <label>Price :*</label>
+          <input
+            placeholder="Price"
+            type="text"
+            required
+            onChange={(e) => setPrice(e.target.value)}
+          />
+        </div>
+        {/* <div className="input-group">
           <label htmlFor=""> show broker !</label>
     <select name="" id="" onChange={(e)=>setBrok(e.target.value)}>
       
@@ -130,16 +131,7 @@ function CreateCourse() {
       <option value="1">Yes</option>
     </select>
         </div>
-        {/* <div className="input-group">
-          <label>Price :*</label>
-          <input
-            placeholder="Price"
-            type="number"
-            required
-            onChange={(e) => setPrice(e.target.value)}
-          />
-        </div>
-      */}
+  */}
   
         {/* <div className="input-group">
           <label>Telegram chanel names :</label>
@@ -180,7 +172,7 @@ function CreateCourse() {
           </div>
         </div> */}
         <div className="input-group">
-          <label>package :</label>
+          <label>Category :</label>
           <select required onChange={(e) => setSelectedCate(e.target.value)}>
             <option value="" disabled selected></option>
 

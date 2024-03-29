@@ -15,25 +15,26 @@ function AllCategoires() {
 
   const handelDelete = function () {
     setOnload(true);
-    fetch(`${route}/education/categories/${delId}`, {
+    fetch(`${route}/categories/${delId}`, {
       method: "Delete",
       headers: {
-        "Content-Type": "application/json",
+    
         Authorization: `Bearer ${token}`,
       },
     })
-      .then((res) => res.json())
+      // .then((res) => res.json())
       .then(() => {
+        setOnload(false);
         setRefresh((prev) => prev + 1);
         setDelId("");
         setIsPop(false);
-        setOnload(false);
+  
       });
   };
   useEffect(() => {
     setOnload(true);
 
-    fetch(`${route}/education/categories?page=${currentPage}`, {
+    fetch(`${route}/categories?page=${currentPage}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

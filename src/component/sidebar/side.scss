@@ -1,7 +1,7 @@
 @import "../helpers/mixins";
 .side {
   background-color: rgb(0, 0, 0);
-  width: 30%;
+  width: 25%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -23,13 +23,7 @@
     border-radius: 10px;
     bottom: 0;
   }
-  .logout {
-    margin: 15px auto;
-    padding: 10px;
-    background-color: rgb(42, 119, 207);
-    color: white;
-    border-radius: 10px;
-  }
+
   img {
     width: 150px;
     border-radius: 5px;
@@ -45,35 +39,87 @@
     overflow-y: scroll;
     width: 90%;
     margin: 0 auto;
+    padding: 0 10px;
     h2 {
-      background-color: white;
+    
       margin: 0;
-      text-align: center;
-      border-radius: 10px;
+      text-align: left;
+      color: white;
+      border-bottom: 2px solid;
     }
     a.active {
-      background-color: orangered;
-      padding-left: 30px;
+      // background-color: orangered;
+      // padding-left: 30px;
+      &::after{
+        right:20px
+      }
     }
     a {
-      font-size: 24px;
-      font-weight: 600;
+      font-size: 17px;
+      // font-weight: 600;
       background: rgba(0, 0, 0, 0.596);
       padding: 7px;
       transition: 0.2s;
       text-transform: capitalize;
       color: white;
+     
+      position: relative;
+      &::after{
+        content: ">";
+        position: absolute;
+        font-size: 20px;
+        font-weight: bold;
+        right: 40px;
+        transition: 0.2s;
+      }
+
       &:hover {
-        background-color: orangered;
-        padding-left: 30px;
+        // background-color: orangered;
+
+        &::after{
+          right: 20px;
+        }
       }
     }
     .add {
-      background-color: rgba(27, 231, 27, 0.616);
+      // background-color: rgba(27, 231, 27, 0.616);
       &:hover {
         background-color: rgb(7, 238, 7);
       }
     }
+  }
+  .button {
+    background-color: #ffffff00;
+    color: #fff;
+    width: 8.5em;
+    height: 2.9em;
+    border: #3654ff 0.2em solid;
+    border-radius: 11px;
+    text-align: right;
+    transition: all 0.6s ease;
+    margin: 15px auto;
+    padding: 0 10px;
+  }
+  
+  .button:hover {
+    background-color: #3654ff;
+    cursor: pointer;
+  }
+  
+  .button svg {
+    width: 1.6em;
+    // margin: -0.3em 0.8em 1em;
+    position: absolute;
+    display: flex;
+    transition: all 0.6s ease;
+  }
+  
+  .button:hover svg {
+    transform: translateX(5px);
+  }
+  
+  .text {
+    margin: 0 1.5em
   }
 }
 .side-show {

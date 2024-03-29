@@ -16,7 +16,7 @@ function AllCourses() {
   const updateOrder = function (e) {
     e.preventDefault();
     setOnload(true);
-    fetch(`${route}/education/courses/${updateId}`, {
+    fetch(`${route}/courses/${updateId}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -35,14 +35,14 @@ function AllCourses() {
   };
   const handelDelete = function () {
     setOnload(true);
-    fetch(`${route}/education/courses/${delId}`, {
+    fetch(`${route}/courses/${delId}`, {
       method: "Delete",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
     })
-      .then((res) => res.json())
+   
       .then(() => {
         setRefresh((prev) => prev + 1);
         setDelId("");
@@ -53,7 +53,7 @@ function AllCourses() {
   useEffect(() => {
     setOnload(true);
 
-    fetch(`${route}/education/courses?page=${currentPage}&sort=orderNumber`, {
+    fetch(`${route}/courses?page=${currentPage}&sort=orderNumber`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

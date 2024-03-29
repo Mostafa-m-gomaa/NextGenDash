@@ -1,6 +1,6 @@
 .side {
   background-color: rgb(0, 0, 0);
-  width: 30%;
+  width: 25%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -23,13 +23,6 @@
     bottom: 0;
   }
 }
-.side .logout {
-  margin: 15px auto;
-  padding: 10px;
-  background-color: rgb(42, 119, 207);
-  color: white;
-  border-radius: 10px;
-}
 .side img {
   width: 150px;
   border-radius: 5px;
@@ -47,35 +40,67 @@
   overflow-y: scroll;
   width: 90%;
   margin: 0 auto;
+  padding: 0 10px;
 }
 .side .links h2 {
-  background-color: white;
   margin: 0;
-  text-align: center;
-  border-radius: 10px;
+  text-align: left;
+  color: white;
+  border-bottom: 2px solid;
 }
-.side .links a.active {
-  background-color: orangered;
-  padding-left: 30px;
+.side .links a.active::after {
+  right: 20px;
 }
 .side .links a {
-  font-size: 24px;
-  font-weight: 600;
+  font-size: 17px;
   background: rgba(0, 0, 0, 0.596);
   padding: 7px;
   transition: 0.2s;
   text-transform: capitalize;
   color: white;
+  position: relative;
 }
-.side .links a:hover {
-  background-color: orangered;
-  padding-left: 30px;
+.side .links a::after {
+  content: ">";
+  position: absolute;
+  font-size: 20px;
+  font-weight: bold;
+  right: 40px;
+  transition: 0.2s;
 }
-.side .links .add {
-  background-color: rgba(27, 231, 27, 0.616);
+.side .links a:hover::after {
+  right: 20px;
 }
 .side .links .add:hover {
   background-color: rgb(7, 238, 7);
+}
+.side .button {
+  background-color: rgba(255, 255, 255, 0);
+  color: #fff;
+  width: 8.5em;
+  height: 2.9em;
+  border: #3654ff 0.2em solid;
+  border-radius: 11px;
+  text-align: right;
+  transition: all 0.6s ease;
+  margin: 15px auto;
+  padding: 0 10px;
+}
+.side .button:hover {
+  background-color: #3654ff;
+  cursor: pointer;
+}
+.side .button svg {
+  width: 1.6em;
+  position: absolute;
+  display: flex;
+  transition: all 0.6s ease;
+}
+.side .button:hover svg {
+  transform: translateX(5px);
+}
+.side .text {
+  margin: 0 1.5em;
 }
 
 @media (max-width: 767px) {

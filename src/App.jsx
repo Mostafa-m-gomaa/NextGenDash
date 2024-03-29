@@ -102,11 +102,9 @@ function App() {
   const [showError, setShowError] = useState(false);
   const [showMessage, setShowMessage] = useState(false);
   const [message, setMessage] = useState("hello");
-  // const [route, setRoute] = useState(
-  //   "https://api.thenewnormal.trade/api/v1/"
-  // );
+
   const [route, setRoute] = useState(
-    "https://api.thenewnormal.trade/api/v1/"
+    "https://api2.softwave-dev.com/api/v1/"
   );
   
 
@@ -174,7 +172,7 @@ function App() {
         {onload ? (
           <div className="spin-cont">
             <div className="back-ground"></div>
-            <div className="spinner"></div>
+            <div class="loader"></div>
           </div>
         ) : null}
 
@@ -192,10 +190,14 @@ function App() {
         {showMessage ? <div className="message">{message}</div> : null}
 
         {login ? <Side /> : null}
+
         <Routes>
           <Route path="/" element={<Login />} />
-          <Route path="/" element={<Layout />}>
+        
+          
             <Route path="/all-users" element={<AllUsers />} />
+            <Route path="/add-users" element={<CreateUser />} />
+            
             <Route path="/telegramChannels" element={<AllTelegramChannels />} />
             <Route
               path="/telegramChannels/new"
@@ -315,7 +317,7 @@ function App() {
             <Route path="/market-log/:id" element={<MarketLog />} />
             <Route path="/all-requests" element={<AllMarketingRequests />} />
             <Route path="/all-withdraw-req" element={<WithdrawReq />} />
-          </Route>
+         
         </Routes>
       </div>
     </AppContext.Provider>

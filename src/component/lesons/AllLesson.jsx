@@ -19,14 +19,14 @@ function AllLesson() {
 
   const handelDelete = function () {
     setOnload(true);
-    fetch(`${route}/education/lessons/${delId}`, {
+    fetch(`${route}/lessons/${delId}`, {
       method: "Delete",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
     })
-      .then((res) => res.json())
+ 
       .then(() => {
         setRefresh((prev) => prev + 1);
         setDelId("");
@@ -36,7 +36,7 @@ function AllLesson() {
   };
   useEffect(() => {
     setOnload(true);
-    fetch(`${route}/education/courses`, {
+    fetch(`${route}/courses`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -48,7 +48,7 @@ function AllLesson() {
         setCourses(data.data);
         console.log(data.data);
       });
-    fetch(`${route}/education/lessons?page=${currentPage}`, {
+    fetch(`${route}/lessons?page=${currentPage}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

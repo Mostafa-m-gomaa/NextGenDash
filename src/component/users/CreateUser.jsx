@@ -35,7 +35,7 @@ function CreateUser() {
     formData.append("password", pass);
     formData.append("passwordConfirm", passCon);
     formData.append("phone", phone);
-    formData.append("country", country);
+  
     formData.append("role", role);
     formData.append("about", about);
     formData.append("profileImg", profileImg, profileImg.name);
@@ -49,6 +49,7 @@ function CreateUser() {
     })
       .then((res) => res.json())
       .then((data) => {
+        console.log(data);
         if (data?.errors) {
           setErr(data.errors[0].msg);
         }

@@ -12,6 +12,7 @@ const Side = () => {
 
   const logOut = (e) => {
     localStorage.clear();
+    setLogin(false)
     fetch(`${route}/auth/logout`, {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -21,9 +22,23 @@ const Side = () => {
   return (
     <div className="side">
       {login ? (
-        <Link to="/" className="logout" onClick={logOut}>
-          تسجيل الخروج
-        </Link>
+        // <Link to="/" className="logout" onClick={logOut}>
+        //   تسجيل الخروج
+        // </Link>
+        
+<Link class="button" to="/" onClick={logOut}>
+
+  
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"></path>
+</svg>
+
+
+<div class="text">
+  Log Out
+</div>
+
+</Link>
       ) : null}
       <div className="links">
         <h2>General</h2>
@@ -48,24 +63,28 @@ const Side = () => {
         </NavLink> */}
 
         <h2>Education</h2>
-        <NavLink onClick={linkClick} to="/all-brokers">
+        {/* <NavLink onClick={linkClick} to="/all-brokers">
           all brokers
         </NavLink>
         <NavLink onClick={linkClick} to="/create-broker">
           create broker
-        </NavLink>
-        {/* <NavLink onClick={linkClick} to="/all-category">
-          all categories
-        </NavLink>
-        <NavLink onClick={linkClick} to="/add-category">
-          create categories
         </NavLink> */}
-        <NavLink onClick={linkClick} to="/telegramChannels">
+   
+        {/* <NavLink onClick={linkClick} to="/telegramChannels">
           All telegram channels
         </NavLink>
         <NavLink onClick={linkClick} to="/telegramChannels/new">
           Create telegram channel
+        </NavLink> */}
+
+
+     <NavLink onClick={linkClick} to="/all-category">
+          all categories
         </NavLink>
+        <NavLink onClick={linkClick} to="/add-category">
+          create categories
+        </NavLink>
+
         <NavLink onClick={linkClick} to="/all-courses">
           all courses
         </NavLink>
@@ -78,29 +97,29 @@ const Side = () => {
         <NavLink onClick={linkClick} to="/add-lesson">
           add lesson
         </NavLink>
-        <NavLink onClick={linkClick} to="/all-lives">
+        {/* <NavLink onClick={linkClick} to="/all-lives">
           all lives
-        </NavLink>
-        <NavLink onClick={linkClick} to="/add-live">
+        </NavLink> */}
+        {/* <NavLink onClick={linkClick} to="/add-live">
           create live
-        </NavLink>
-        <NavLink onClick={linkClick} to="/all-packages">
+        </NavLink> */}
+        {/* <NavLink onClick={linkClick} to="/all-packages">
           all packages
         </NavLink>
         <NavLink onClick={linkClick} to="/add-package">
           add packages
-        </NavLink>
-        <NavLink onClick={linkClick} to="/add-course-package">
+        </NavLink> */}
+        {/* <NavLink onClick={linkClick} to="/add-course-package">
           add course packages
-        </NavLink>
+        </NavLink> */}
         <NavLink onClick={linkClick} to="/add-userPackage">
-          Add User To Package
+          Add User To Course
         </NavLink>
-        <NavLink onClick={linkClick} to="/remove-userPackage">
+        {/* <NavLink onClick={linkClick} to="/remove-userPackage">
           remove User from Package
-        </NavLink>
+        </NavLink> */}
 
-        <NavLink onClick={linkClick} to="/all-analytic">
+        {/* <NavLink onClick={linkClick} to="/all-analytic">
           all analytic
         </NavLink>
         <NavLink onClick={linkClick} to="/add-analytic">
@@ -114,8 +133,8 @@ const Side = () => {
         </NavLink>
         <NavLink onClick={linkClick} to="/all-education-orders">
           all education orders
-        </NavLink>
-        <h2>Store</h2>
+        </NavLink> */}
+        {/* <h2>Store</h2>
         <NavLink onClick={linkClick} to="/all-products">
           all products
         </NavLink>
@@ -149,8 +168,8 @@ const Side = () => {
         </NavLink>
         <NavLink onClick={linkClick} to="/all-store-orders">
           all store orders
-        </NavLink>
-
+        </NavLink> */}
+{/* 
         <h2>advertisements</h2>
         <NavLink onClick={linkClick} to="/all-advertisements">
           all advertisements
@@ -161,14 +180,14 @@ const Side = () => {
           to="/add-advertisement"
         >
           add advertisement
-        </NavLink>
-        <h2>LandingPage</h2>
+        </NavLink> */}
+        {/* <h2>LandingPage</h2>
         <NavLink onClick={linkClick} to="/all-questions">
           all questions
         </NavLink>
         <NavLink onClick={linkClick} to="/add-question">
           add question
-        </NavLink>
+        </NavLink> */}
         {/* <NavLink onClick={linkClick} to="/all-landing">
           all landing
         </NavLink> */}
@@ -181,7 +200,7 @@ const Side = () => {
         <NavLink onClick={linkClick} to="/add-story">
           add story
         </NavLink> */}
-        <h2>Marketing </h2>
+        {/* <h2>Marketing </h2>
         <NavLink onClick={linkClick} to="/createInvoiceForAllUsers">
           Create Invoice For All Users
         </NavLink>
@@ -194,7 +213,7 @@ const Side = () => {
 
         <NavLink onClick={linkClick} to="/all-withdraw-req">
           All Withdraw requests
-        </NavLink>
+        </NavLink> */}
       </div>
     </div>
   );

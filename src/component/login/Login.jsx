@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AppContext } from "../../App";
 import toast from "react-hot-toast";
+import logo from '../../assets/logoNew.png'
 
 const Login = () => {
   const history = useNavigate();
@@ -99,7 +100,7 @@ const Login = () => {
 
   return (
     <div className="login">
-      <form action="" onSubmit={handleSign}>
+      {/* <form action="" onSubmit={handleSign}>
         <h1>Login To DashBoard</h1>
         <input
           value={mail}
@@ -114,7 +115,32 @@ const Login = () => {
           placeholder="Password"
         />
         <button type="submit">Submit</button>
+      </form> */}
+      <img src={logo} alt="" />
+      <div class="form-container">
+      <form class="form" onSubmit={handleSign}>
+        <div class="form-group">
+          <label for="email"> Email</label>
+          <input
+          value={mail}
+          onChange={handleMail}
+          type="email"
+          placeholder="Email"
+        />
+        </div>
+        <div class="form-group">
+          <label for="textarea">Password</label>
+   
+        <input
+          value={password}
+          onChange={handlePass}
+          type="password"
+          placeholder="Password"
+        />
+        </div>
+        <button type="submit" class="form-submit-btn">Submit</button>
       </form>
+    </div>
     </div>
   );
 };

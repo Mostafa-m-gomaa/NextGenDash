@@ -22,15 +22,17 @@ function CreateCategorie() {
     const formData = new FormData();
 
     formData.append("title", title);
-    formData.append("image", image, image.name);
+  
 
     setOnload(true);
-    fetch(`${route}/education/categories`, {
+    fetch(`${route}/categories`, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${token}`,
+
+        "Content-Type": "application/json",
       },
-      body: formData,
+      body: JSON.stringify({ title }),
     })
       .then((res) => res.json())
       .then((data) => {
